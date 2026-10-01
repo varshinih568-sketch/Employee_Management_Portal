@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit Employee</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Edit Employee</h1>
+
+    <form method="POST">
+
+        <label>Employee ID:</label>
+        <input type="text" name="employee_id"
+               value="{{ employee.employee_id }}" required>
+        <br><br>
+
+        <label>Full Name:</label>
+        <input type="text" name="full_name"
+               value="{{ employee.full_name }}" required>
+        <br><br>
+
+        <label>Email Address:</label>
+        <input type="email" name="email"
+               value="{{ employee.email }}" required>
+        <br><br>
+
+        <label>Phone Number:</label>
+        <input type="text" name="phone"
+               value="{{ employee.phone }}" required>
+        <br><br>
+
+        <label>Department:</label>
+        <input type="text" name="department"
+               value="{{ employee.department }}" required>
+        <br><br>
+
+        <label>Designation:</label>
+        <input type="text" name="designation"
+               value="{{ employee.designation }}" required>
+        <br><br>
+
+        <label>Joining Date:</label>
+        <input type="date" name="joining_date"
+               value="{{ employee.joining_date }}" required>
+        <br><br>
+
+        <label>Salary:</label>
+        <input type="number" name="salary"
+               value="{{ employee.salary }}" required>
+        <br><br>
+
+        <label>Location:</label>
+        <input type="text" name="location"
+               value="{{ employee.location }}" required>
+        <br><br>
+
+        <label>Employment Status:</label>
+
+        <select name="employment_status" required>
+
+            <option value="Active"
+                {% if employee.employment_status == "Active" %}selected{% endif %}>
+                Active
+            </option>
+
+            <option value="On Leave"
+                {% if employee.employment_status == "On Leave" %}selected{% endif %}>
+                On Leave
+            </option>
+
+            <option value="Resigned"
+                {% if employee.employment_status == "Resigned" %}selected{% endif %}>
+                Resigned
+            </option>
+
+        </select>
+
+        <br><br>
+
+        <button type="submit">Update Employee</button>
+
+    </form>
+
+    <br>
+
+    <a href="/">Back to Employee List</a>
+
+</div>
+
+</body>
+</html>
